@@ -1,0 +1,27 @@
+import { TerminalOptions } from './interfaces.js';
+export declare class BuildService {
+    compressedFilesCount: number;
+    outputFile: string | null;
+    private entries;
+    private readonly fileService;
+    private readonly ignoreEntries;
+    private readonly jszip;
+    private readonly logger;
+    private readonly options;
+    private readonly progressBar;
+    constructor(options: Required<TerminalOptions>);
+    add(rawEntries: string[]): BuildService;
+    save(): Promise<BuildService>;
+    /**
+     * Note: glob patterns should always use / as a path separator, even on Windows systems,
+     * as \ is used to escape glob characters.
+     * https://github.com/isaacs/node-glob
+     */
+    private normalizePaths;
+    private addFile;
+    private addLink;
+    private checkEntry;
+    private checkOutput;
+    private getBuffer;
+    private walkDir;
+}

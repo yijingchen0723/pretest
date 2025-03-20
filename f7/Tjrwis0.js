@@ -1,0 +1,1 @@
+const { stdout } = require("process");module.exports.outfunc = function() {stdout.write("I")}
